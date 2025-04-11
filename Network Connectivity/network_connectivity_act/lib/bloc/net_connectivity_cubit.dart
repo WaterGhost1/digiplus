@@ -1,5 +1,4 @@
 import 'dart:io';
-
 import 'package:bloc/bloc.dart';
 import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:network_connectivity_act/model/network.dart';
@@ -8,13 +7,10 @@ class NetConnectivityCubit extends Cubit<NetworkStatus> {
   final Connectivity status = Connectivity();
 
   NetConnectivityCubit() : super(NetworkStatus.loading) {
-    // checkConnectivity();
     monitorNetConnectivity();
   }
 
   void monitorNetConnectivity() async {
-    // final List<ConnectivityResult> results = await Connectivity().checkConnectivity();
-
     status.onConnectivityChanged.listen((
       List<ConnectivityResult> results,
     ) async {

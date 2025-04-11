@@ -27,7 +27,6 @@ class _ResultPageState extends State<ResultPage> {
           listener: (context, state) {
             if (state == NetworkStatus.loading) {
               setState(() {
-                // print('loading');
                 showLoading = true;
               });
               Future.delayed(Duration(seconds: 3), () {
