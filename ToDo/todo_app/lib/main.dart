@@ -1,24 +1,36 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:todo_app/bloc/todo_bloc_bloc.dart';
-import 'package:todo_app/screens/todo_page.dart';
+import 'package:todo_app/Routes/generate_routes.dart';
+import 'package:todo_app/bloc/bloc/landing_bloc_bloc.dart';
+import 'package:todo_app/bloc/todo_app/bloc/todo_app_bloc.dart';
+// import 'package:todo_app/tryfolder/screens/todo_page.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(
+    MultiBlocProvider(
+      providers: [
+        BlocProvider(create: (context) => LandingBlocBloc()),
+        BlocProvider(create: (context) => TodoAppBloc()),
+      ],
+      child: const MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+    // TODO: implement build
     return MaterialApp(
       title: 'Flutter Demo',
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
-      home: BlocProvider(create: (_) => TodoBlocBloc(), child: TodoPage()),
+      initialRoute: '/',
+      onGenerateRoute: RouteGenerator().generateRoute,
     );
   }
 }
