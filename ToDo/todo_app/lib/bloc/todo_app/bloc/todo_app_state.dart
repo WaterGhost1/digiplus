@@ -15,3 +15,12 @@ final class TodoAppInitial extends TodoAppState {
 final class TodoListState extends TodoAppState {
   const TodoListState({required super.items});
 }
+
+@immutable
+abstract class TodoAppState2 {}
+class TodoAppInitial2 extends TodoAppState2 {}
+class TodoAppLoaded extends TodoAppState2 {
+  final List<TodoModel> todos;
+  TodoAppLoaded(this.todos);
+}
+ 
