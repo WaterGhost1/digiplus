@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:todo_app/Presentation/Screens/landing_screen.dart';
+import 'package:todo_app/Presentation/Screens/login_screen.dart';
 import 'package:todo_app/Presentation/Screens/second_screen.dart';
 import 'package:todo_app/Presentation/Screens/todo_screen.dart';
 import 'package:todo_app/bloc/bloc/landing_bloc_bloc.dart';
@@ -21,6 +22,8 @@ class RouteGenerator {
         return MaterialPageRoute(builder: (context) => const SecondScreen());
       case '/todoScreen':
         return MaterialPageRoute(builder: (context) => const TodoScreen());
+      case '/loginScreen':
+        return MaterialPageRoute(builder: (context) => const LoginScreen());
 
       default:
         return _errorRoute();
